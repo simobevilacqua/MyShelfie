@@ -26,6 +26,3 @@ java -jar AM11.jar --client --tui
 ```bat
 java -jar AM11.jar --client --gui
 ```
-
-## Final grade
-29/30
