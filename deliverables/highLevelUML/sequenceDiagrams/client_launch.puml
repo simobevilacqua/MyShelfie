@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant LaunchClient
+participant ClientController
+
+LaunchClient -> View: create view (GUI/TUI)
+View -> View: show choose type of connection
+View -> LaunchClient: serverIP + connection choice (TCP/RMI)
+
+LaunchClient -> Client: create client (TCP/RMI)
+LaunchClient -> Client: open connection
+LaunchClient -> ClientController: create client controller (view, client)
+ClientController -> View: set client controller
+ClientController -> Client: set controller
+LaunchClient -> ClientController: initialize controller
+ClientController -> Client: start
+ClientController -> View: show choose nickname
+View -> ClientController: chosen nickname
+ClientController -> Client: sendMessage(LoginRequest)
+@enduml
